@@ -112,7 +112,7 @@ https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod/single-search
 ```
 
 ## Request Query params Sample
-```json
+```shell
 lat=52.44257691961897&lng=-2.015120663792357
 ```
 
