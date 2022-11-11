@@ -4,7 +4,7 @@ This API allows you to search properties from our vast range of footprints data.
 ## Endpoint URL
 The base URL for the API is
 ```bash
-https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod
+https://api.birmingham-city-land-registry.com
 ```
 
 # Autorization
@@ -41,7 +41,7 @@ Postman is downloadable for free use from here and supported with lots of develo
 
 After downloading Postman follow the instructions below to get started.
 1. Create a new request.
-2. In the Request URL field, paste your API's invoke URL which is https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod/single-search
+2. In the Request URL field, paste your API's invoke URL which is https://api.birmingham-city-land-registry.com/single-search
 3. Select the GET HTTP method
 4. Setup authorization as mentioned above.
 5. Now put your lat/lng in the Params section with `lat` and `lng` keys.
@@ -59,7 +59,7 @@ from aws_requests_auth.aws_auth import AWSRequestsAuth
 
 
 def m2m_request(access_key, secret_key, lat, lng):
-    api_url = "https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod/single-search"
+    api_url = "https://api.birmingham-city-land-registry.com/single-search"
     aws_details = {
         'aws_access_key': access_key,
         'aws_secret_access_key': secret_key,
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 The API request needs to be signed with AWS Signature Version 4. Please follow this [link](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) for more details. 
 
 ```shell
-curl --location --request GET 'https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod/single-search?lat=52.44257691961897&lng=-2.015120663792357' \
+curl --location --request GET 'https://api.birmingham-city-land-registry.com/single-search?lat=52.44257691961897&lng=-2.015120663792357' \
 --header 'X-Amz-Date: 20221110T065928Z' \
 --header 'Authorization: AWS4-HMAC-SHA256 Credential=AKIA2TITFGWE6TFCSUHL/20221110/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=0078cf993d25980a940bba7efe96be56de143912bf177f7179f23db76698794a'
 ```
@@ -100,7 +100,7 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header 'X-Amz-Date: 20221110T065928Z' \
   --header 'Authorization: AWS4-HMAC-SHA256 Credential=AKIA2TITFGWE6TFCSUHL/20221110/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=0078cf993d25980a940bba7efe96be56de143912bf177f7179f23db76698794a' \
-   'https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod/single-search?lat=52.44257691961897&lng=-2.015120663792357'
+   'https://api.birmingham-city-land-registry.com/single-search?lat=52.44257691961897&lng=-2.015120663792357'
 ```
 
 # Request and Response Samples
@@ -108,7 +108,7 @@ Here are the sample request and response
 
 ## Request URL
 ```shell
-https://ejxvqfwe5m.execute-api.us-east-1.amazonaws.com/prod/single-search
+https://api.birmingham-city-land-registry.com/single-search
 ```
 
 ## Request Query params Sample
