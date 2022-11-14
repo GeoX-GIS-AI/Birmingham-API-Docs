@@ -58,12 +58,12 @@ import requests
 from aws_requests_auth.aws_auth import AWSRequestsAuth
 
 
-def m2m_request(access_key, secret_key, lat, lng):
+def birmingham_request(access_key, secret_key, lat, lng):
     api_url = "https://api.birmingham-city-land-registry.com/single-search"
     aws_details = {
         'aws_access_key': access_key,
         'aws_secret_access_key': secret_key,
-        'aws_host': "ejxvqfwe5m.execute-api.us-east-1.amazonaws.com",
+        'aws_host': "api.birmingham-city-land-registry.com",
         'aws_region': "us-east-1",
         'aws_service': "execute-api"
     }
@@ -72,14 +72,14 @@ def m2m_request(access_key, secret_key, lat, lng):
         "lat": lat,
         "lng": lng
     }
-    res = requests.post(api_url, auth=auth, params=request_params)
+    res = requests.get(api_url, auth=auth, params=request_params)
     assert res.status_code == 200, f"Request failed with status: {res.status_code}"
     res_data = res.json()
     return res_data
 
 
 if __name__ == '__main__':
-    m2m_response = m2m_request("YOUR_API_KEY", "YOUR_API_SECRET",
+    m2m_response = birmingham_request("YOUR_API_KEY", "YOUR_API_SECRET",
                                52.44257691961897, -2.015120663792357)
     print(json.dumps(m2m_response, indent=2))
 ```
@@ -272,5 +272,3 @@ lat=52.44257691961897&lng=-2.015120663792357
     "status": 200
 }
 ```
-
-
