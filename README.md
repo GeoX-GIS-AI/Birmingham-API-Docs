@@ -272,3 +272,7 @@ lat=52.44257691961897&lng=-2.015120663792357
     "status": 200
 }
 ```
+
+
+# API Reference
+Please visit this [link](https://api.birmingham-city-land-registry.com/redoc) for more detailed description about API response attributes
