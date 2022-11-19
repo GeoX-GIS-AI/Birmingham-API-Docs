@@ -26,7 +26,7 @@ For more information, see [Signing requests](https://docs.aws.amazon.com/apigate
 
 # HTTP response codes
 - 200 — Success.
-- 400 — Bad Request There was a validation error with the input. Most probably you missed to provide lat/lng or corellationId in the request body.
+- 400 — Bad Request There was a validation error with the input. Most probably you missed to provide lat/lng or correlationId in the request body.
 - 401 — You Signging process was failed. Probably due to incorrect AWS Access Key/Secret Key.
 - 403 — Forbidden.
 - 404 — Not Found One or more of the required resources was not found, please make sure you entered correct endpoint URL.
@@ -55,7 +55,7 @@ After downloading Postman follow the instructions below to get started.
 3. Select the POST HTTP method
 4. Setup authorization as mentioned above.
 5. Now go to the Body section, select the raw radio button and select JSON from the dropdown.
-6. Now put your lat/lng or address in the Body section with `lat` and `lng`  and `address` keys along with `corellationId` key.
+6. Now put your lat/lng or address in the Body section with `lat` and `lng`  and `address` keys along with `correlationId` key.
 7. You can add multiple locations in the body section. Please refer to API documentation for more details (link at the end of this document).
 8. Finally, hit the API.
 
@@ -126,25 +126,25 @@ def birmingham_locations_batch(access_key, secret_key, locations):
 
 if __name__ == '__main__':
     # Calling single location API with lat/lng
-    birmingham_response = birmingham_request("YOUR_API_KEY", "YOUR_API_SECRET",
-                                             lat=45.6696163800542, lng=-122.5038830583887)
+    birmingham_response = birmingham_request_single_location("YOUR_API_KEY", "YOUR_API_SECRET",
+                                                             lat=45.6696163800542, lng=-122.5038830583887)
     print(json.dumps(birmingham_response, indent=2))
 
     # Calling single location API with address
-    birmingham_response = birmingham_request("YOUR_API_KEY", "YOUR_API_SECRET",
-                                             address="123 Main St, Portland, OR 97204")
+    birmingham_response = birmingham_request_single_location("YOUR_API_KEY", "YOUR_API_SECRET",
+                                                             address="123 Main St, Portland, OR 97204")
     print(json.dumps(birmingham_response, indent=2))
 
     # Calling batch location API
-    locations = [ # Each location object should contain lat/lng or address along with corellationId
+    locations = [ # Each location object should contain lat/lng or address along with correlationId
         {
             "lat": 52.465536191811154,
             "lng": -1.877542072485532,
-            "corellationId": "123"
+            "correlationId": "123"
         },
         {
             "address": "89 Stratford Rd, Birmingham B11 1AN, UK",
-            "corellationId": "789"
+            "correlationId": "789"
         }
     ]
     birmingham_response = birmingham_locations_batch(access_key, secret_key, locations)
@@ -173,10 +173,10 @@ curl --location --request POST 'https://api.birmingham-city-land-registry.com/si
         {
             "lat": 52.465536191811154,
             "lng": -1.877542072485532,
-            "corellationId": "1e6a747f11f16540a27e"
+            "correlationId": "1e6a747f11f16540a27e"
         },
         {
-            "corellationId": "123",
+            "correlationId": "123",
             "address": "89 Stratford Rd, Birmingham B11 1AN, UK"
         }
     ]
@@ -208,10 +208,10 @@ wget --no-check-certificate --quiet \
         {
             "lat": 52.465536191811154,
             "lng": -1.877542072485532,
-            "corellationId": "1e6a747f11f16540a27e"
+            "correlationId": "1e6a747f11f16540a27e"
         },
         {
-            "corellationId": "123",
+            "correlationId": "123",
             "address": "89 Stratford Rd, Birmingham B11 1AN, UK"
         }
     ]
@@ -245,11 +245,11 @@ address=89 Stratford Rd, Birmingham B11 1AN, UK
         {
             "lat": 52.465536191811154,
             "lng": -1.877542072485532,
-            "corellationId": "123"
+            "correlationId": "123"
         },
         {
             "address": "89 Stratford Rd, Birmingham B11 1AN, UK",
-            "corellationId": "789"
+            "correlationId": "789"
         }
     ]
 }
@@ -427,7 +427,7 @@ address=89 Stratford Rd, Birmingham B11 1AN, UK
                 "state": "England",
                 "zip": ""
             },
-            "corellationId": "123",
+            "correlationId": "123",
             "img_path": "https://xgeo-birm-images.s3.amazonaws.com/img/02152021132141473000X6wqmjsSoLiIWel.png?AWSAccessKeyId=AKIAZJIYWTQ64TAOCRO7&Signature=1Lw%2BmdQn0xFVq2WYmcwv%2FU9phgE%3D&Expires=1668853868",
             "records": [
                 {
@@ -846,7 +846,7 @@ address=89 Stratford Rd, Birmingham B11 1AN, UK
                 "state": "England",
                 "zip": ""
             },
-            "corellationId": "789",
+            "correlationId": "789",
             "img_path": "https://xgeo-birm-images.s3.amazonaws.com/img/02152021132141473000X6wqmjsSoLiIWel.png?AWSAccessKeyId=AKIAZJIYWTQ64TAOCRO7&Signature=1Lw%2BmdQn0xFVq2WYmcwv%2FU9phgE%3D&Expires=1668853868",
             "records": [
                 {
