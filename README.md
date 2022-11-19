@@ -106,11 +106,11 @@ def birmingham_request_single_location(access_key, secret_key, lat=None, lng=Non
     return res_data
 
 def birmingham_locations_batch(access_key, secret_key, locations):
-    api_url = "https://api.geox-ai.com/api/v8.3/parcels"
+    api_url = "https://api.birmingham-city-land-registry.com/single-search"
     aws_details = {
         'aws_access_key': access_key,
         'aws_secret_access_key': secret_key,
-        'aws_host': "api.geox-ai.com",
+        'aws_host': "api.birmingham-city-land-registry.com",
         'aws_region': "us-east-1",
         'aws_service': "execute-api"
     }
