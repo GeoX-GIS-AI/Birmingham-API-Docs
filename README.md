@@ -4,7 +4,7 @@ This API allows you to search properties from our vast range of footprints data.
 ## Endpoint URL
 The base URL for the API is
 ```bash
-https://api.birmingham-city-land-registry.com
+https://api.geoxanalytics-demo.com
 ```
 
 # Autorization
@@ -43,7 +43,7 @@ After downloading Postman follow the instructions below to get started.
 
 => Single Location API with GET method
 1. Create a new request.
-2. In the Request URL field, paste your API's invoke URL which is https://api.birmingham-city-land-registry.com/single-search
+2. In the Request URL field, paste your API's invoke URL which is https://api.geoxanalytics-demo.com/birmingham
 3. Select the GET HTTP method
 4. Setup authorization as mentioned above.
 5. Now put your lat/lng or address in the Params section with `lat` and `lng`  and `address` keys.
@@ -51,7 +51,7 @@ After downloading Postman follow the instructions below to get started.
 
 => Batch Location API with POST method
 1. Create a new request.
-2. In the Request URL field, paste your API's invoke URL which is https://api.birmingham-city-land-registry.com/single-search
+2. In the Request URL field, paste your API's invoke URL which is https://api.geoxanalytics-demo.com/birmingham
 3. Select the POST HTTP method
 4. Setup authorization as mentioned above.
 5. Now go to the Body section, select the raw radio button and select JSON from the dropdown.
@@ -82,11 +82,11 @@ def birmingham_request_single_location(access_key, secret_key, lat=None, lng=Non
     :return: Response of the API
     """
     assert (lat and lng) or address, "Either lat/lng or address is required."
-    api_url = "https://api.birmingham-city-land-registry.com/single-search"
+    api_url = "https://api.geoxanalytics-demo.com/birmingham"
     aws_details = {
         'aws_access_key': access_key,
         'aws_secret_access_key': secret_key,
-        'aws_host': "api.birmingham-city-land-registry.com",
+        'aws_host': "api.geoxanalytics-demo.com",
         'aws_region': "us-east-1",
         'aws_service': "execute-api"
     }
@@ -106,11 +106,11 @@ def birmingham_request_single_location(access_key, secret_key, lat=None, lng=Non
     return res_data
 
 def birmingham_locations_batch(access_key, secret_key, locations):
-    api_url = "https://api.birmingham-city-land-registry.com/single-search"
+    api_url = "https://api.geoxanalytics-demo.com/birmingham"
     aws_details = {
         'aws_access_key': access_key,
         'aws_secret_access_key': secret_key,
-        'aws_host': "api.birmingham-city-land-registry.com",
+        'aws_host': "api.geoxanalytics-demo.com",
         'aws_region': "us-east-1",
         'aws_service': "execute-api"
     }
@@ -156,14 +156,14 @@ The API request needs to be signed with AWS Signature Version 4. Please follow t
 
 => Single Location API with GET method
 ```shell
-curl --location --request GET 'https://api.birmingham-city-land-registry.com/single-search?lat=52.44257691961897&lng=-2.015120663792357' \
+curl --location --request GET 'https://api.geoxanalytics-demo.com/birmingham?lat=52.44257691961897&lng=-2.015120663792357' \
 --header 'X-Amz-Date: 20221119T101449Z' \
 --header 'Authorization: AWS4-HMAC-SHA256 Credential=AKIA2TITFGWE6TFCSUHL/20221119/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=15d1851e01835c1ca5da79edef69f69613f3c3ce2544f940e7c73f4c06acb3bd'
 ```
 
 => Batch Location API with POST method
 ```shell
-curl --location --request POST 'https://api.birmingham-city-land-registry.com/single-search' \
+curl --location --request POST 'https://api.geoxanalytics-demo.com/birmingham' \
 --header 'X-Amz-Content-Sha256: beaead3198f7da1e70d03ab969765e0821b24fc913697e929e726aeaebf0eba3' \
 --header 'X-Amz-Date: 20221119T101603Z' \
 --header 'Authorization: AWS4-HMAC-SHA256 Credential=AKIA2TITFGWE6TFCSUHL/20221119/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=90a168c63da9e07d7c2c56778c60039f30b36e085f7c9b858999570e3f04d11c' \
@@ -191,7 +191,7 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header 'X-Amz-Date: 20221119T101648Z' \
   --header 'Authorization: AWS4-HMAC-SHA256 Credential=AKIA2TITFGWE6TFCSUHL/20221119/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-date, Signature=6db6db32213806662504744186566385a99fa44676636838b42a7555eef071b7' \
-   'https://api.birmingham-city-land-registry.com/single-search?lat=52.44257691961897&lng=-2.015120663792357'
+   'https://api.geoxanalytics-demo.com/birmingham?lat=52.44257691961897&lng=-2.015120663792357'
 ```
 
 => Batch Location API with POST method
@@ -216,7 +216,7 @@ wget --no-check-certificate --quiet \
         }
     ]
 }' \
-   'https://api.birmingham-city-land-registry.com/single-search'
+   'https://api.geoxanalytics-demo.com/birmingham'
 ```
 
 # Request and Response Samples
@@ -224,7 +224,7 @@ Here are the sample request and response
 
 ## Request URL
 ```shell
-https://api.birmingham-city-land-registry.com/single-search
+https://api.geoxanalytics-demo.com/birmingham
 ```
 
 ## Request Query params Sample (Single Location API)
@@ -1262,4 +1262,4 @@ address=89 Stratford Rd, Birmingham B11 1AN, UK
 }
 ```
 # API Reference
-Please visit this [link](https://api.birmingham-city-land-registry.com/redoc) for more detailed description about API response attributes
+Please visit this [link](https://api.geoxanalytics-demo.com/redoc) for more detailed description about API response attributes
